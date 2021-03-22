@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*function trong js chia 2 loại : khai báo hàm và biểu thức hàm
+                                                                                           + khai báo hàm bị hoisting
+                                                                                           
+                                                                                        */
+
+        // var express = function() {
+        //     // biểu thức hàm
+        //     console.log("kieu anh duc 123");
+        // };
+        // express();
+
+        // var x = ()=> console.log('kieu anh duc');
+        // x();
+
+        //TODO HAM THUC THI TUC THI
+        // const handle = (()=>{
+        //     console.log('kieu anh duc');
+        // })()
+
+        // (()=>{
+        //      console.log('xxx');
+        // })()
+
+         function Car(fullname){
+             //TODO contructor function : ham khoi tao
+              this.fullname = fullname;
+         }
+         const bwm = new Car('bmw');
+        // console.log(bwm)
+
+
+        // //TODO rest parameter : nhuwngz tham số còn lại
+        // function sum(a,b,c, ...arg){
+        //     console.log(arg)
+        // }
+        // console.log(sum(1,2,3,4,5));
+
+        // const  sum = (...rest) =>{
+        //      let result = 0
+        //     //  rest.forEach((item)=>{
+        //     //       result += item
+        //     // })
+        //     var xyz = rest.map((item)=>{
+        //          result += item
+        //     });
+        //     return result
+        // }
+        // console.log(sum(5,6,7));
+
+        //TODO this trong phuwown thuc de cap den object chu quan
+        // var person = {
+        //     firstName: 'John',
+        //     lastName: 'Doe',
+        //     id: 5566,
+        //     fullName: function () {
+        //         // console.log(this)
+        //         return this.firstName + ' ' + this.lastName
+        //     }
+        // }
+        // var handleFullName = person.fullName
+        // console.log(person.fullName()) // John Doe
+        // console.log(handleFullName()) // undefined undefined
+
+
+        //TODO this đứng một minhg là 1 lobal obj .  obj window
+
+        // function x(name){
+        //     this.name = name
+        //     this.printName = ()=>{
+        //          console.log(this.name)
+        //     }
+        // }
+        // const  y = new x('dd');
+        //     y.printName();
+
+        // const delay = {
+        //     lastNames:'duc',
+        //     print() {
+        //         setTimeout(()=>{
+        //             console.log('anh duc');
+        //         },1000)
+        //     }
+        // }
+        // delay.print();
+
+
+        //TODO HIGHER ORDER FUNCTION
+        // là một function mà nhận vào tham số là function hoac return ve 1 function
+
+        // const  sum = a => b => a+b;
+        // // console.log(sum(1)(2))
+        // const x = [1,2,3,4,5].map((item)=>item*2)
+        // console.log(x)
+
+        //TODO closure : nếu function cha return về function con
+
+        //  function outside(x){
+        //       function inside(y){
+        //           return x*y;
+        //       }
+        //       return inside;
+        // }
+        //
+        // console.log(outside(3)(5))
+
+    //todo curying : chuyển function nhiều tham số thành function liên tiếp có 1 tham số
+
+        // function sum(a){
+        //     return function (b){
+        //         return a+b;
+        //     }
+        // }
+
+        //TODO bài tập
+        // tìm các số tự nhiên bé hơn 10 và là số lẻ
+        const  findNum1 = () => {
+            const array = [];
+            for (let i = 0; i < 10 ; i++){
+                 if (i % 2 == 1){
+                     array.push(i);
+                 }
+            }
+            return array;
+        }
+         // những sso bé hơn 20 và là số chắn
+        const  findNum2 = () => {
+            const array = [];
+            for (let i = 0; i < 20 ; i++){
+                if (i % 2 == 0){
+                    array.push(i);
+                }
+            }
+            return array;
+        }
+        // console.log(findNum2())
+
+        // tự nhiên bé hơn 30 và chia cho 3 dư 2
+        const  findNum3 = () => {
+            const array = [];
+            for (let i = 0; i < 30 ; i++){
+                if (i % 3 == 2){
+                    array.push(i);
+                }
+            }
+            return array;
+        }
+
+        //TODO cách 2 dùng kỹ thuật curring
+
+        const findNum = (num)=> (func) => {
+            const  array = [];
+            for (let i = 0; i< num ; i++){
+                if (func(i)){
+                    array.push(i)
+                }
+            }
+            return array;
+        }
+
+        findNum(10)((number)=>number % 2===1);
+        findNum(30)((number)=>number % 3 == 2);
+        findNum(20)((number)=>number%2===0);
+
+
+      //todo
+        const mang = [1,2,3,4];
+
+        const  callbackCurying = x => {
+            return (item,index,func)=>{
+                console.log(item,index,func,x)
+            }
+        }
+        mang.forEach(callbackCurying(10));
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

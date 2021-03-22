@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // [[Prototype]] : là 1 thuộc tính ẩn , chúng ta vẫn có thể dùng nó thông qua getter/setter : __proto__
+        let animal = {
+            eats: true
+        }
+
+        let rabbit = {
+            jumps: true
+        }
+
+        let dog = {
+
+        }
+
+        dog.__proto__ = animal;
+
+
+        //TODO: __PROTO__ không phải là thuộc tính [[prototype]] nó chỉ là getter/setter của  [[prototype]]
+
+        let user = {
+            name: "john",
+            surname: 'smith',
+
+            set fullname(value) {;
+                [this.name, this.surname] = value.split('');
+            },
+
+            get fullname() {
+                return `${this.name} ${this.surname}`;
+            }
+        }
+    </script>
+</body>
+
+</html>

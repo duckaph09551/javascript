@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- /*
+
+    Viết hàm nhận vào số nguyên dương n và return lại một mảng các ước số của nó
+    Viết hàm nhận vào số nguyên dương n và return lại tổng tất cả ước số nguyên dương của nó
+    Viết hàm kiểm tra số nguyên dương n có phải số nguyên tố hay không
+    Viết hàm tính tổng các chữ số của số nguyên dương n
+    Viết chương trình nhập tháng, năm. Hãy cho biết tháng đó có bao nhiêu ngày. Biết rằng năm nhuận là năm chia hết cho 400 hoặc chia hết cho 4 nhưng không chia hết cho 100.
+    Viết hàm in bảng cửu chương ra màn hình
+    Tìm số fibonacci thứ n. Cụ thể, các số đầu tiên của dãy Fibonacci là 1, 1, 2, 3, 5, 8, 13...
+    Tính tổng n số fibonacci đầu tiên
+
+    */ -->
+
+    <script>
+        //TODO bài 1
+        const uocso = (n) => {
+                const result = []
+                let i = 1
+                while (i <= n) {
+                    if (n % i === 0) {
+                        result.push(i)
+                    }
+                    i++
+                }
+                // console.log(result);
+                return result
+
+            }
+            // uocso(8);
+
+
+
+        //TODO bài 4 :
+        const tinhTong = (n) => {
+            let result = 0;
+            const string = String(n);
+            for (const iterator of string) {
+                result += Number(iterator)
+            }
+            return result;
+        }
+        tinhTong(123);
+    </script>
+</body>
+
+</html>
