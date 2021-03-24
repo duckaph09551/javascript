@@ -44,14 +44,32 @@ const duoc = new persion("duoc", 25);
 // }
 
 //TODO: ==========================================
-class Button {
-    constructor(value) {
-        this.value = value;
-    }
-    click = () => {
-        console.log(this.value);
-    };
-}
+// class Button {
+//     constructor(value) {
+//         this.value = value;
+//     }
+//     click = () => {
+//         console.log(this.value);
+//     };
+// }
 
-let button = new Button("hello");
-setTimeout(() => button.click(), 1000);
+// let button = new Button("hello");
+// setTimeout(() => button.click(), 1000);
+
+function Car(name, gas) {
+    this.name = name;
+    this.gas = gas;
+}
+Car.prototype.run = function() {
+    setTimeout(() => {
+        this.gas = this.gas / 2;
+        if (typeof this.onFinish === "function") this.onFinish(this, this.gas);
+    }, 1000);
+};
+
+const BMW = new Car("BMW", 100);
+BMW.onFinish = function(a, b) {
+    console.log(a);
+    console.log(this.gas);
+};
+BMW.run();
